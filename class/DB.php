@@ -10,11 +10,10 @@ class DB
     var $dbname = "cp7e0ihz7ifwhk2l";
 
     /**
-     *  DB constructor.
+     * DB constructor.
      */
-    pubulic function  __construct()
-{
-    $this->conn = new mysqul($this->servername, $this->dbusername, $this->dbpassword, $this->dbname);
-}
-
+    public function __construct()
+    {
+        $this->conn = new mysqli($this->servername, $this->dbusername, $this->dbpassword, $this->dbname);
+    }
 }
