@@ -20,10 +20,10 @@
                     $("#studentName").val(data.name);
                     $("#studentUsername").val(data.username);
                     $("#studentName").dbleclick(function () {
-                        $("#studentName").removeProp("readonly");
+                        $("#studentName").Prop('readonly', false);
                     });
                     $("#studentName").dbleclick(function () {
-                        $("#studentName").removeProp("readonly");
+                        $("#studentName").Prop('readonly', false);
                     });
                 },
                 error: function () {
