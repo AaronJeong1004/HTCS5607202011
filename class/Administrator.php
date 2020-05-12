@@ -39,18 +39,25 @@ class Administrator
             $student = array(); //for transfer data, I use objects array
             while ($row = $result->fetch_row()){
                 $student = new Student($row['id'], $row["name"], $row['username'], $row['password'] );
+                //$student = new Student(1, '1', '1', '1');
                 array_push($student, $student);
             }
             return $student;
         }else{
             return null;
         }
-
     }
 
     public function showStudents($id){
         $query = "select * from student where id="+$id;
         $result = mysqli_query($this->conn, $query);
-        if ($result)
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_row()){
+                $student = new Student($row['id'], $row["name"], $row['username'], $row['password'] );
+                return $student;
+            }
+
+        }
+
     }
 }
