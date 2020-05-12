@@ -3,11 +3,11 @@
 
 class Student
 {
-    var $id;
-    var $name;
-    var $username;
-    var $password;
-    var $dbconn;
+    public $id;
+    public $name;
+    public $username;
+    public $password;
+    public $dbconn;
 
     public function  __construct($id, $name, $username, $password)
     {
@@ -15,10 +15,11 @@ class Student
         $this->name = $name;
         $this->username = $username;
         $this->password = $password;
-        $this->dbconn = (new DB())->conn ;
+        //
     }
     public  function save(){
         //if I don't have this object in my database, I will register him first
+        $this->dbconn = (new DB())->conn ;
         if (is_null($this->id)){
             $query = "insert into student values (null, '$this->name', '$this->username', '$this->password')";
             echo $query;

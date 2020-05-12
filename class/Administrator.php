@@ -47,4 +47,10 @@ class Administrator
         }
 
     }
+
+    public function showStudents($id){
+        $query = "select * from student where id="+$id;
+        $result = mysqli_query($this->conn, $query);
+        if ($result)
+    }
 }

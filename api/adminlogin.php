@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors, 1', 1);
+include_once "../class/Administrator.php";
 if (isset($_POST['username'])){
     $username = $_POST['username'];
     $pwd = $_POST['password'];
@@ -8,8 +11,17 @@ if (isset($_POST['username'])){
         session_start();
         $_SESSION['admin_id'] = $admin->id;
         $links = array();
-        array_push($links, ['List students', 'liststudents.php']);
-        array_push($links, ['List students', 'liststudents.php']);
-        echo "<p><a href='liststudents.php'>List students</a></p>";
+        $link =new StdClass();
+        $link->name = 'list Student';
+        $link->url = 'liststudents.html';
+        array_push($links, $link);
+        $link=new stdClass();
+        $link->name = 'List lectures';
+        $link->url = 'listlectures.php';
+        array_push($links, $link);
+        echo json_encode($links);
     }
+
+}else{
+
 }
