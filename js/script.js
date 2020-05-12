@@ -29,9 +29,13 @@ $(document).ready(function () {
                while (i<data.length){
                    $("#studentsTable").append("<tr><td><a href='studentInformation.php?id="+data[i].id+"'>"+data[i].id+"</a></td>" +
                        "<td>"+ data[i].name +"</td>" +
-                       "<td>"+ data[i].username +"</td></tr>");
+                       "<td>"+ data[i].username +"<button deleteid='"+data[i].id+"' class='deleteBtn'>X</button></td></tr>");
                    i = i+1;
                }
+
+               $(".deleteBtn").click(function () {
+                   $(this).parent().parent().remove(); //I need to remove the table row
+               });
 
             },
             error: function () {
