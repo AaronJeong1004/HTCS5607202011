@@ -19,7 +19,12 @@
                     console.log(data);
                     $("#studentName").val(data.name);
                     $("#studentUsername").val(data.username);
-
+                    $("#studentName").dbleclick(function () {
+                        $("#studentName").removeProp("readonly");
+                    });
+                    $("#studentName").dbleclick(function () {
+                        $("#studentName").removeProp("readonly");
+                    });
                 },
                 error: function () {
                     alert("Not connected");
@@ -32,8 +37,8 @@
 <body>
 
 <div id="studentInfoDiv">
-    <p>Name: <input type="text" id="studentName"></p>
-    <p>Username: <input type="text" id="studentUsername"></p>
+    <p>Name: <input type="text" id="studentName" readonly></p>
+    <p>Username: <input type="text" id="studentUsername" readonly></p>
     <p><button>Save</button></p>
 </div>
 </body>
