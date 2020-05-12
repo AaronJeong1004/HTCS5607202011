@@ -50,7 +50,7 @@ class Administrator
 
     public function showStudents($id){
         $query = "select * from student where id="+$id;
-        echo  $query;
+        echo "query:"+ $query;
         $result = mysqli_query($this->conn, $query);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_row()){
