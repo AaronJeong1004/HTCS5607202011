@@ -60,4 +60,10 @@ class Administrator
         }
 
     }
+
+    public function studentUpdate($id, $name, $username){
+        $query = "update student SET name = '$name', username = '$username' where id=".$id;
+        mysqli_query($this->conn, $query);
+
+    }
 }

@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (isset($_POST['admin'])){
-    include_once "class/Administrator.php";
+if (isset($_SESSION['admin_id'])){
+    include_once "../class/Administrator.php";
     $admin = new Administrator();
     $students = $admin->showStudent();
     $stds = json_encode($students);

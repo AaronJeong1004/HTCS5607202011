@@ -25,6 +25,18 @@
                     $("#studentName").dbleclick(function () {
                         $("#studentName").Prop('readonly', false);
                     });
+                    $("#save").click(function () {
+                        newName = $("#studentName").val();
+                        newUsernameame = $("#studentUsername").val();
+
+                        url = "http://herokugitphpleisong.herokuapp.com/api/apiUpdateStudent.php";
+                        posting = $.post(url, { id:<?php echo $studentID;?>, name: newName, username: newUsername});
+                        posting.done(function (data) {
+                            alert("changed");
+
+                        });
+
+                    });
                 },
                 error: function () {
                     alert("Not connected");
